@@ -1,0 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Follow : MonoBehaviour
+{
+    public Transform target;
+    public Vector3 offset;
+
+    void Updata()
+    {
+        transform.position = target.position + offset;
+    }
+}
+#카메라가 캐릭터를 따라 움직인다.
