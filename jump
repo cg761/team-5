@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class jump : MonoBehaviour
+{
+    float hAxis;
+    float vAxis;
+    Rigidbody rigidbody;
+    Vector3 moveVec;
+    public float jumpPower = 5f;
+    bool isJumping;
+
+    void Awake ()
+    {
+        rigidbody = GetComponent<Rigidbody> ();
+    }
+    
+    void Update()
+    {
+        hAxis = Input.GetAxisRaw("Horizontal");
+        vAxis = Input.GetAxisRaw("Vertical");
+        if(Input.GetButtonDown("Jump"))
+            isJumping = true;
+
+
+    }
+    void Jump()
+    {
+        if(!isJumping)
+            return;
+            rigidbody.AddForce(Vector3.up * jumpPower,ForceMode.Impulse);
+
+            isJumping=false;
+    }
+}
